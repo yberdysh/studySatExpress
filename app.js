@@ -24,6 +24,7 @@ nunjucks.configure('views', { noCache: true }); // where to find the views, cach
 //error handling middleware:
 app.use((err, req, res, next) => {
   console.error(err);
+  res.status(500).send("Oh no, there is an error");
 })
 
 app.listen(3000, ()=> {
@@ -31,3 +32,6 @@ app.listen(3000, ()=> {
 })
 
 app.use('/', router);
+//app.use('/student', require('/.routes/student'))
+//if making a different file for each set of routes such as student, test, etc
+//suggested to give different routes here
